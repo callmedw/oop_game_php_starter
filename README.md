@@ -7,13 +7,13 @@
 
 To pass this code review with a Meets Expectations the following criteria are required:
 
-- [ ] Class file includes the $currentPhrase and $selected properties.
+- [x] Class file includes the $currentPhrase and $selected properties.
 - [ ] Class file includes a constructor which accepts two optional parameters for a phrase string and a selected array.
 - [ ] If a phrase is not passed, a phrase is randomly selected from a list.
 - [ ] If a phrase is not passed, a phrase is randomly selected from a list.
     - [ ] addPhraseToDisplay()
     - [ ] checkLetter()
-- [ ] Class file includes the $phrase and $lives properties.
+- [x] Class file includes the $phrase and $lives properties.
 - [ ] Class file includes a constructor which accepts a Phrase object and sets the property.
 - [ ] Game class includes the following methods:
     - [ ] checkForWin()
@@ -36,6 +36,9 @@ Additionally, the app may Exceed Expectations by including:
 - [ ] Event listener for the "keypress" event that submits the form for the associated onscreen keyboard button
 - [ ] App styles have been personalized and changes have been noted in the README.md file and the project submission notes
 
+## CSS style personalization notes:
+
+* 💅🏼
 
 ## Known Bugs
 
