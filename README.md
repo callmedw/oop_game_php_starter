@@ -19,9 +19,8 @@ A browser-based, word guessing game,  "Phrase Hunter." Using PHP and OOP (Object
 
 <p align="center">
   <a href="#features">Features</a> •
-  <a href="#technologies-used"> Technologies Used </a> •
   <a href="#how-to-use">How To Use</a> •
-  <a href="#requirements">Requirements</a> •
+  <a href="#required-technologies">Requirements</a> •
   <a href="#known-bugs">Bug Report</a> •
   <a href="#support">Support</a> •
   <a href="#license">License</a>
@@ -37,7 +36,7 @@ To pass this code review with a Meets Expectations the following criteria are re
 - [ ] If a phrase is not passed, a phrase is randomly selected from a list.
     - [ ] addPhraseToDisplay()
     - [ ] checkLetter()
-- [x] Class file includes the $phrase and $lives properties.
+- [x] Class file includes the phrase and lives properties.
 - [ ] Class file includes a constructor which accepts a Phrase object and sets the property.
 - [ ] Game class includes the following methods:
     - [ ] checkForWin()
