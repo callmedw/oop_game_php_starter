@@ -15,6 +15,12 @@ A browser-based, word guessing game,  "Phrase Hunter." Using PHP and OOP (Object
     <img src="https://img.shields.io/badge/License-MIT-green.svg?style=popout"
     alt="MIT-license-badge">
   </a>
+  <a href="https://GitHub.com/callmedw/oop_game_php_starter/issues/">
+    <img src="https://img.shields.io/github/issues/callmedw/oop_game_php_starter.svg?style=popout"
+    alt="github-issues-badge">
+  </a>
+  <img src="https://img.shields.io/github/languages/code-size/callmedw/oop_game_php_starter.svg?style=popout"
+  alt="code-size-badge">
 </p>
 
 <p align="center">
