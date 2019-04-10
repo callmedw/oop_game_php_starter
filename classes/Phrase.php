@@ -4,7 +4,7 @@ class Phrase {
   private $currentPhrase = " ";
   private $selected = [ ];
 
-  public function __construct($phrase = null, $selected) {
+  public function __construct($phrase = null, $selected = null) {
     $this->setPhrase($phrase);
     $this->$selected[] = $selected;
   }
