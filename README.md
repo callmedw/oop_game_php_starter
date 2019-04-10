@@ -42,9 +42,9 @@ To pass this code review with a Meets Expectations the following criteria are re
 - [ ] If a phrase is not passed, a phrase is randomly selected from a list.
 - [ ] Phrase class includes the following methods:
     - [ ] addPhraseToDisplay()
-    - [ ] checkLetter()
+    - [x] checkLetter()
 - [x] Class file includes the phrase and lives properties.
-- [ ] Class file includes a constructor which accepts a Phrase object and sets the property.
+- [x] Class file includes a constructor which accepts a Phrase object and sets the property.
 - [ ] Game class includes the following methods:
     - [ ] checkForWin()
     - [ ] checkForLose()

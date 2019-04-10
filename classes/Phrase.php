@@ -10,11 +10,11 @@ class Phrase {
   }
 
   public function setPhrase($phrase) {
-    if (empty($phrase)) {
-      $this->phrase = ucwords($phrase);
+    if ($phrase) {
+      $this->currentPhrase = $phrase;
     } else {
       // select random phrase
-      $this->phrase = null;
+      // $this->currentPhrase = null;
     }
   }
 
@@ -22,9 +22,15 @@ class Phrase {
   // private function addPhraseToDisplay() {
   //
   // }
-  //
-  // private function checkLetter() {
-  //
-  // }
+
+  public function checkLetter($letter) {
+    if (strpos($this->currentPhrase, $letter) !== false) {
+      echo "true";
+    } else {
+      echo "false";
+    }
+  }
+
+
 
 }
