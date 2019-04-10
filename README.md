@@ -2,12 +2,12 @@
   <br>
   <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://www.theatricalrights.com/wp-content/uploads/2016/04/game-show-web-banner.png" alt="Pic of a Game Show" width="600px"></a>
   <br>
-  OOP Game Show App
+  Phrase Hunter
   <br>
 </h1>
 
 <h4 align="center">
-A browser-based, word guessing game,  "Phrase Hunter." Using PHP and OOP (Object Oriented Programming) to select a random, hidden phrase, which a player tries to guess, by clicking letters on an onscreen keyboard.
+A browser-based, word guessing game. Using PHP and OOP (Object Oriented Programming) to select a random, hidden phrase, which a player tries to guess, by clicking letters on an onscreen keyboard.
 </h4>
 
 <p align="center">
@@ -38,9 +38,9 @@ A browser-based, word guessing game,  "Phrase Hunter." Using PHP and OOP (Object
 To pass this code review with a Meets Expectations the following criteria are required:
 
 - [x] Class file includes the currentPhrase and selected properties.
-- [ ] Class file includes a constructor which accepts two optional parameters for a phrase string and a selected array.
+- [x] Class file includes a constructor which accepts two optional parameters for a phrase string and a selected array.
 - [ ] If a phrase is not passed, a phrase is randomly selected from a list.
-- [ ] If a phrase is not passed, a phrase is randomly selected from a list.
+- [ ] Phrase class includes the following methods:
     - [ ] addPhraseToDisplay()
     - [ ] checkLetter()
 - [x] Class file includes the phrase and lives properties.
