@@ -41,7 +41,7 @@ To pass this code review with a Meets Expectations the following criteria are re
 - [x] Class file includes a constructor which accepts two optional parameters for a phrase string and a selected array.
 - [ ] If a phrase is not passed, a phrase is randomly selected from a list.
 - [ ] Phrase class includes the following methods:
-    - [ ] addPhraseToDisplay()
+    - [x] addPhraseToDisplay()
     - [x] checkLetter()
 - [x] Class file includes the phrase and lives properties.
 - [x] Class file includes a constructor which accepts a Phrase object and sets the property.

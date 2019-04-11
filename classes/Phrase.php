@@ -18,11 +18,6 @@ class Phrase {
     }
   }
 
-
-  // private function addPhraseToDisplay() {
-  //
-  // }
-
   public function checkLetter($letter) {
     if (strpos($this->currentPhrase, $letter) !== false) {
       echo "true";
@@ -31,6 +26,19 @@ class Phrase {
     }
   }
 
-
-
+  public function addPhraseToDisplay() {
+    echo $this->currentPhrase;
+    $phrase = str_split($this->currentPhrase);
+    echo "<div id='phrase' class='section'>";
+    echo "<ul>";
+    foreach($phrase as $character) {
+      if ($character == " ") {
+        echo "<li class='space'>$character</li>";
+      } else {
+        echo "<li class='letter'>$character</li>";
+      }
+    }
+    echo "</ul>";
+    echo "</div>";
+  }
 }
