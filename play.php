@@ -17,26 +17,28 @@ $score = new Game;
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   </head>
   <body>
+    <div class="main-container">
 
-  <div class="main-container">
-    <div id='scoreboard' class='section'>
-      <ol>
-        <?php $score->displayScore(); ?>
-      </ol>
-  </div>
+      <div id='scoreboard' class='section'>
+        <ol>
+          <?php $score->displayScore(); ?>
+        </ol>
+      </div>
 
-  <h2 class="header">Phrase Hunter</h2>
-  <div id='phrase' class='section'>
-    <ul>
-      <?php $game->addPhraseToDisplay(); ?>
-    </ul>
-  </div>
 
-  <form action="play.php">
-    <div id='qwerty' class='section'>
-      <?php $score->displayKeyboard(); ?>
+      <h2 class="header">Phrase Hunter</h2>
+      <div id='phrase' class='section'>
+        <ul>
+          <?php $game->addPhraseToDisplay(); ?>
+        </ul>
+      </div>
+
+      <form action="play.php">
+        <div id='qwerty' class='section'>
+          <?php $score->displayKeyboard(); ?>
+        </div>
+      </form>
+
     </div>
-  </form>
-
   </body>
 </html>
