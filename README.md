@@ -40,7 +40,7 @@ To pass this code review with a Meets Expectations the following criteria are re
 - [x] Class file includes the currentPhrase and selected properties.
 - [x] Class file includes a constructor which accepts two optional parameters for a phrase string and a selected array.
 - [ ] If a phrase is not passed, a phrase is randomly selected from a list.
-- [ ] Phrase class includes the following methods:
+- [x] Phrase class includes the following methods:
     - [x] addPhraseToDisplay()
     - [x] checkLetter()
 - [x] Class file includes the phrase and lives properties.
@@ -50,10 +50,10 @@ To pass this code review with a Meets Expectations the following criteria are re
     - [ ] checkForLose()
     - [ ] gameOver()
     - [ ] displayKeyboard()
-    - [ ] displayScore()
+    - [x] displayScore()
 - [ ] Displays the Phrase boxes and updates letters as the user chooses them.
 - [ ] Displays the onscreen keyboard and allows users to select a letter
-- [ ] Displays the score and shows the user how many lives remain
+- [x] Displays the score and shows the user how many lives remain
 - [ ] Phrase, keyboard and score are shown and user is able to choose letters only once.
 - [ ] If a player makes 5 wrong guesses, the “lose” message is shown
 - [ ] If all the letters in the phrase are shown, the “win” message is shown
