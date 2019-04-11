@@ -46,7 +46,7 @@ h1 {
   font-size: 30px;
 }
 
-button, input[type=submit] {
+input[type=submit] {
   margin: 6px;
   border: 1px solid transparent;
   padding: .5rem 1rem;
