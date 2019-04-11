@@ -35,13 +35,13 @@ class Game {
 
     $lostHeart = <<< HTML
       <li class='tries'>
-      <img src='../images/lostHeart.png' height='35px' width='30px'>
+      <img src='images/lostHeart.png' height='35px' width='30px'>
       </li>
 HTML;
 
     $liveHeart = <<< HTML
       <li class='tries'>
-      <img src='../images/liveHeart.png' height='35px' width='30px'>
+      <img src='images/liveHeart.png' height='35px' width='30px'>
       </li>
 HTML;
 
@@ -55,13 +55,12 @@ HTML;
 }
 
 
-
+// get letter input
 // IF
 // letter is found...
 // show the letter
 //
 // ELSE if letter not found
-// turn one red heart gray
 // take one life away
 //
 // after each turn
