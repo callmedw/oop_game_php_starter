@@ -13,16 +13,27 @@ class Game {
   // }
 
   public function displayKeyboard() {
+    // need to connect a selectedValues array not ["e", "q"]
     $qwertyKeys = ["qwertyuiop","asdfghjkl","zxcvbnm"];
     $keyboard = count($qwertyKeys);
 
     for ($i = 0; $i < $keyboard; $i++) {
       echo "<div class='keyrow'>";
       foreach (str_split($qwertyKeys[$i]) as $value) {
+        // HERE >>>>>>>>>>>>>>> |
         if (!in_array($value, ["e", "q"])) {
-          echo "<input type='submit' class='btn button' class='key' value='".$value."'>";
+          echo "<input
+            type='submit'
+            class='btn button'
+            class='key'
+            value='".$value."'>";
         } else {
-          echo "<input type='submit' class='btn button' class='key' style='background-color: red' disabled value='".$value."'>";
+          echo "<input
+            type='submit'
+            class='btn button key'
+            style='background-color: red'
+            disabled
+            value='".$value."'>";
         }
       }
       echo "</div>";
@@ -45,12 +56,8 @@ HTML;
       </li>
 HTML;
 
-    echo "<div id='scoreboard' class='section'>";
-    echo "<ol>";
     echo str_repeat($lostHeart, $lostLives);
     echo str_repeat($liveHeart, $this->lives);
-    echo "</div>";
-    echo "</ol>";
   }
 }
 

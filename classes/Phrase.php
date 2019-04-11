@@ -21,6 +21,7 @@ class Phrase {
   }
 
   public function checkLetter($letter) {
+    // need to connect with scoreboard
     if (strpos($this->currentPhrase, $letter) !== false) {
       $this->correctGuesses[ ] = $letter;
       return "true";
@@ -32,8 +33,6 @@ class Phrase {
 
   public function addPhraseToDisplay() {
     $phrase = str_split($this->currentPhrase);
-    echo "<div id='phrase' class='section'>";
-    echo "<ul>";
     foreach($phrase as $character) {
       if ($character == " ") {
         echo "<li class='space hide'>$character</li>";
@@ -41,7 +40,5 @@ class Phrase {
         echo "<li class='letter hide'>$character</li>";
       }
     }
-    echo "</ul>";
-    echo "</div>";
   }
 }

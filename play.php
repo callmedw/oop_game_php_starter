@@ -19,9 +19,18 @@ $score = new Game;
 	<body>
 
 		<div class="main-container">
-      <?php $score->displayScore(); ?>
+      <div id='scoreboard' class='section'>
+        <ol>
+          <?php $score->displayScore(); ?>
+        </ol>
+      </div>
+
 			<h2 class="header">Phrase Hunter</h2>
-      <?php $game->addPhraseToDisplay(); ?>
+      <div id='phrase' class='section'>
+        <ul>
+          <?php $game->addPhraseToDisplay(); ?>
+        </ul>
+      </div>
 
       <form action="play.php">
         <div id='qwerty' class='section'>
