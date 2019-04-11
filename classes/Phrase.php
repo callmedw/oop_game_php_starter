@@ -3,6 +3,8 @@
 class Phrase {
   private $currentPhrase = " ";
   private $selected = [ ];
+  private $wrongGuesses =  [ ];
+  private $correctGuesses = [ ];
 
   public function __construct($phrase = null, $selected = null) {
     $this->setPhrase($phrase);
@@ -20,22 +22,23 @@ class Phrase {
 
   public function checkLetter($letter) {
     if (strpos($this->currentPhrase, $letter) !== false) {
-      echo "true";
+      $this->correctGuesses[ ] = $letter;
+      return "true";
     } else {
-      echo "false";
+      $this->wrongGuesses[ ] = $letter;
+      return "false";
     }
   }
 
   public function addPhraseToDisplay() {
-    echo $this->currentPhrase;
     $phrase = str_split($this->currentPhrase);
     echo "<div id='phrase' class='section'>";
     echo "<ul>";
     foreach($phrase as $character) {
       if ($character == " ") {
-        echo "<li class='space'>$character</li>";
+        echo "<li class='space hide'>$character</li>";
       } else {
-        echo "<li class='letter'>$character</li>";
+        echo "<li class='letter hide'>$character</li>";
       }
     }
     echo "</ul>";
