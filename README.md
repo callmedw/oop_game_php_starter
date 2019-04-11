@@ -49,16 +49,16 @@ To pass this code review with a Meets Expectations the following criteria are re
     - [ ] checkForWin()
     - [ ] checkForLose()
     - [ ] gameOver()
-    - [ ] displayKeyboard()
+    - [x] displayKeyboard()
     - [x] displayScore()
 - [ ] Displays the Phrase boxes and updates letters as the user chooses them.
-- [ ] Displays the onscreen keyboard and allows users to select a letter
+- [x] Displays the onscreen keyboard and allows users to select a letter
 - [x] Displays the score and shows the user how many lives remain
 - [ ] Phrase, keyboard and score are shown and user is able to choose letters only once.
 - [ ] If a player makes 5 wrong guesses, the “lose” message is shown
 - [ ] If all the letters in the phrase are shown, the “win” message is shown
-- [ ] A button has been added to restart the game
-- [ ] Provided HTML and CSS is used
+- [x] A button has been added to restart the game
+- [x] Provided HTML and CSS is used
 
 
 Additionally, the app may Exceed Expectations by including:
