@@ -3,8 +3,6 @@
 class Game {
   // private $phrase = new Phrase('yoshi is the supreme being');
   private $lives = 5;
-  private $wrongGuesses =  [ ];
-  private $correctGuesses = [ ];
 
   // private function checkForWin() {
   //
@@ -15,29 +13,23 @@ class Game {
   // }
 
   public function displayKeyboard() {
-    // need to connect a selectedValues array not ["e", "q"]
+    //interested in calling $phrase->selected in place of $_SESSION['guesses'] on line 23
     $qwertyKeys = ["qwertyuiop","asdfghjkl","zxcvbnm"];
     $keyboard = count($qwertyKeys);
 
     for ($i = 0; $i < $keyboard; $i++) {
       echo "<div class='keyrow'>";
       foreach (str_split($qwertyKeys[$i]) as $value) {
-        // HERE >>>>>>>>>>>>>>> |
-        if (!in_array($value, ["e", "q"])) {
-          echo "<input
-            type='submit'
-            id='letter-input'
-            name='input'
-            class='btn button'
-            class='key'
-            value='".$value."'>";
+        if (!in_array($value, $_SESSION['guesses'])) {
+          echo "<input type='submit' id='letter-input'
+            name='input' class='btn button'
+            type 'text'
+            class='key' value='".$value."'>";
         } else {
-          echo "<input
-            type='submit'
+          echo "<input type='submit'
             class='btn button key'
             style='background-color: red'
-            disabled
-            value='".$value."'>";
+            disabled value='".$value."'>";
         }
       }
       echo "</div>";
@@ -46,27 +38,23 @@ class Game {
 
   public function displayScore() {
     $total = 5;
-    $lostLives = $total - $this->lives;
+    $lostLives = $total - $_SESSION['lives'];
 
-    $lostHeart = <<< HTML
-      <li class='tries'>
+    $lostHeart =
+      "<li class='tries'>
       <img src='images/lostHeart.png' height='35px' width='30px'>
-      </li>
-HTML;
+      </li>";
 
-    $liveHeart = <<< HTML
-      <li class='tries'>
+    $liveHeart =
+      "<li class='tries'>
       <img src='images/liveHeart.png' height='35px' width='30px'>
-      </li>
-HTML;
+      </li>";
 
     echo str_repeat($lostHeart, $lostLives);
     echo str_repeat($liveHeart, $this->lives);
   }
 }
 
-
-// get letter input
 // IF
 // letter is found...
 // show the letter
@@ -77,5 +65,3 @@ HTML;
 // after each turn
 // check win
 // check lose
-//
-// if win
