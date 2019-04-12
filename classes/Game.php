@@ -3,6 +3,8 @@
 class Game {
   // private $phrase = new Phrase('yoshi is the supreme being');
   private $lives = 5;
+  private $wrongGuesses =  [ ];
+  private $correctGuesses = [ ];
 
   // private function checkForWin() {
   //
@@ -24,6 +26,8 @@ class Game {
         if (!in_array($value, ["e", "q"])) {
           echo "<input
             type='submit'
+            id='letter-input'
+            name='input'
             class='btn button'
             class='key'
             value='".$value."'>";

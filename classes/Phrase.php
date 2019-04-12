@@ -3,8 +3,6 @@
 class Phrase {
   private $currentPhrase = " ";
   private $selected = [ ];
-  private $wrongGuesses =  [ ];
-  private $correctGuesses = [ ];
 
   public function __construct($phrase = null, $selected = null) {
     $this->setPhrase($phrase);
@@ -21,6 +19,7 @@ class Phrase {
   }
 
   public function checkLetter($letter) {
+    echo "<h1>" .$letter. "</h1>";
     // need to connect with scoreboard
     if (strpos($this->currentPhrase, $letter) !== false) {
       $this->correctGuesses[ ] = $letter;
