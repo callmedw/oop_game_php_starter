@@ -1,4 +1,5 @@
 <?php
+// $_SESSION['correctGuesses'] on line 38 (also ten? I'm confused as to what selected is supposed to be here?)
 
 class Phrase {
   private $currentPhrase = " ";
@@ -7,6 +8,10 @@ class Phrase {
   public function __construct($phrase = null, $selected = null) {
     $this->setPhrase($phrase);
     $this->$selected[] = $selected;
+  }
+
+  public function getSelected() {
+    return $this->selected;
   }
 
   public function setPhrase($phrase) {

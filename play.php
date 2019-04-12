@@ -4,8 +4,9 @@ include "classes/Game.php";
 include "inc/header.php";
 
 session_start();
-$phrase = new Phrase("yoshi is the supreme being");
-$game = new Game($phrase);
+$game = new Game("yoshi is the supreme being");
+$phrase = $game->getPhrase();
+$_SESSION['guesses'] = array_merge($_SESSION['correctGuesses'], $_SESSION['incorrectGuesses']);
 
 if (!isset($_SESSION['correctGuesses'])) {
   $_SESSION['correctGuesses'] = [];
@@ -23,13 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $letter = $_POST['input'];
 
   if (isset($letter)) {
-    $_SESSION['guesses'][] = $letter;
     if ($phrase->checkLetter($letter) == true) {
       $_SESSION['correctGuesses'][ ] = $letter;
     } else {
-      echo "<h1>". $_SESSION['lives'] ."</h1>";
-      $_SESSION['lives'] - 1;
-      echo "<h1>". $_SESSION['lives'] ."</h1>";
       $_SESSION['incorrectGuesses'][ ] = $letter;
     }
 
