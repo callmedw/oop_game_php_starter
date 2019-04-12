@@ -210,3 +210,9 @@ input[type=submit].correct {
 .lose a {
   color: var(--color-lose);
 }
+
+/* Scoreboard */
+
+.tries {
+  margin: 5px;
+}

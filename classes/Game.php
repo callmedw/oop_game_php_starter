@@ -51,14 +51,10 @@ class Game {
       </li>";
 
     echo str_repeat($lostHeart, $lostLives);
-    echo str_repeat($liveHeart, $this->lives);
+    echo str_repeat($liveHeart, $_SESSION['lives']);
   }
 }
 
-// IF
-// letter is found...
-// show the letter
-//
 // ELSE if letter not found
 // take one life away
 //
