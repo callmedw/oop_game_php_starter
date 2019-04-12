@@ -31,8 +31,10 @@ class Phrase {
     foreach($phrase as $character) {
       if ($character == " ") {
         echo "<li class='space hide'>$character</li>";
+      } elseif (in_array($character, $_SESSION['correctGuesses'])) {
+          echo "<li class='letter'>$character</li>";
       } else {
-        echo "<li class='letter hide'>$character</li>";
+          echo "<li class='letter hide'>$character</li>";
       }
     }
   }
