@@ -1,8 +1,8 @@
 <?php
 
 class Game {
-  // private $phrase = new Phrase('yoshi is the supreme being');
-  private $lives = 5;
+  private $phrase;
+  private $lives;
 
   // private function checkForWin() {
   //
@@ -11,6 +11,19 @@ class Game {
   // private function gameOver() {
   //
   // }
+
+  public function __construct($phrase = null) {
+    $this->lives = 5;
+    $this->phrase = new Phrase($phrase);
+  }
+
+  public function getLives() {
+    return $this->lives;
+  }
+
+  public function getPhrase() {
+    return $this->phrase;
+  }
 
   public function displayKeyboard() {
     //interested in calling $phrase->selected in place of $_SESSION['guesses'] on line 23
@@ -38,7 +51,7 @@ class Game {
 
   public function displayScore() {
     $total = 5;
-    $lostLives = $total - $_SESSION['lives'];
+    $lostLives = $total - $this->getLives();
 
     $lostHeart =
       "<li class='tries'>
@@ -51,7 +64,7 @@ class Game {
       </li>";
 
     echo str_repeat($lostHeart, $lostLives);
-    echo str_repeat($liveHeart, $_SESSION['lives']);
+    echo str_repeat($liveHeart, $this->getLives());
   }
 }
 
