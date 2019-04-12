@@ -3,48 +3,58 @@ include "classes/Phrase.php";
 include "classes/Game.php";
 include "inc/header.php";
 
-$letter = "";
-$game = new Phrase("yoshi is the supreme being");
-$score = new Game;
+session_start();
+$phrase = new Phrase("yoshi is the supreme being");
+$game = new Game($phrase);
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-  var_dump($_GET);
-  $letter = filter_input(INPUT_GET, 'letter-input', FILTER_SANITIZE_STRING);
-  if (empty($letter)) {
-    $message = 'Please guess by choosing a letter.';
-  } else {
-    if ($game->checkLetter($letter)) {
-      echo "<h1> $letter </h1>";
-      echo $letter;
-      $message = "Letter being sent somewhere";
-      header('location:play.php');
-      exit;
+if (!isset($_SESSION['correctGuesses'])) {
+  $_SESSION['correctGuesses'] = [];
+}
+
+if (!isset($_SESSION['incorrectGuesses'])) {
+  $_SESSION['incorrectGuesses'] = [];
+}
+
+if(!isset($_SESSION['lives'])) {
+  $_SESSION['lives'] = 5;
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $letter = $_POST['input'];
+
+  if (isset($letter)) {
+    $_SESSION['guesses'][] = $letter;
+    if ($phrase->checkLetter($letter) == true) {
+      $_SESSION['correctGuesses'][ ] = $letter;
     } else {
-      echo "<h1> hey </h1>";
-      $message = 'huh no letter not being sent anywhere';
-      header('location:play.php');
+      echo "<h1>". $_SESSION['lives'] ."</h1>";
+      $_SESSION['lives'] - 1;
+      echo "<h1>". $_SESSION['lives'] ."</h1>";
+      $_SESSION['incorrectGuesses'][ ] = $letter;
     }
+
+  } else {
+    echo 'Please guess by choosing a letter.';
   }
-  echo $message;
 }
 ?>
 
   <div id='scoreboard' class='section'>
     <ol>
-      <?php $score->displayScore(); ?>
+      <?php $game->displayScore(); ?>
     </ol>
   </div>
 
   <h2 class="header">Phrase Hunter</h2>
   <div id='phrase' class='section'>
     <ul>
-      <?php $game->addPhraseToDisplay(); ?>
+      <?php $phrase->addPhraseToDisplay(); ?>
     </ul>
   </div>
 
-  <form>
+  <form method="post">
     <div id='qwerty' class='section'>
-      <?php $score->displayKeyboard(); ?>
+      <?php $game->displayKeyboard(); ?>
     </div>
   </form>
 
