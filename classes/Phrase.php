@@ -19,14 +19,10 @@ class Phrase {
   }
 
   public function checkLetter($letter) {
-    echo "<h1>" .$letter. "</h1>";
-    // need to connect with scoreboard
     if (strpos($this->currentPhrase, $letter) !== false) {
-      $this->correctGuesses[ ] = $letter;
-      return "true";
+      return true;
     } else {
-      $this->wrongGuesses[ ] = $letter;
-      return "false";
+      return false;
     }
   }
 
@@ -37,6 +33,17 @@ class Phrase {
         echo "<li class='space hide'>$character</li>";
       } else {
         echo "<li class='letter hide'>$character</li>";
+      }
+    }
+  }
+
+  public function testPhraseToDisplay() {
+    $phrase = str_split($this->currentPhrase);
+    foreach($phrase as $character) {
+      if ($character == " ") {
+        echo " $character ";
+      } else {
+        echo " $character ";
       }
     }
   }
