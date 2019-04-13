@@ -4,11 +4,6 @@ class Game {
   private $phrase;
   private $lives;
 
-  // private function checkForWin() {
-  //
-  // }
-  //
-
   public function __construct($phrase = null) {
     $this->lives = 5;
     $this->phrase = new Phrase($phrase);
@@ -24,6 +19,24 @@ class Game {
 
   public function getPhrase() {
     return $this->phrase;
+  }
+
+  public function checkForLose() {
+    if ($this->getLives() <= 0) {
+      session_destroy();
+      header('location:index.php');
+    }
+  }
+
+  public function checkForWin($selected) {
+    $correctPhrase = str_split($this->phrase->getPhrase());
+    unset($correctPhrase[null]);
+    
+    if ($correctPhrase == $selected) {
+      echo "Both arrays are same\n";
+    } else {
+      echo "Both arrays are not same\n";
+    }
   }
 
   public function displayKeyboard() {
@@ -67,10 +80,3 @@ class Game {
     echo str_repeat($liveHeart, $this->getLives());
   }
 }
-
-// ELSE if letter not found
-// take one life away
-//
-// after each turn
-// check win
-// check lose
