@@ -8,13 +8,14 @@ class Game {
   //
   // }
   //
-  // private function gameOver() {
-  //
-  // }
 
   public function __construct($phrase = null) {
     $this->lives = 5;
     $this->phrase = new Phrase($phrase);
+  }
+
+  public function setLives($number) {
+    $this->lives = $number;
   }
 
   public function getLives() {
@@ -26,14 +27,13 @@ class Game {
   }
 
   public function displayKeyboard() {
-    //interested in calling $phrase->selected in place of $_SESSION['guesses'] on line 23
     $qwertyKeys = ["qwertyuiop","asdfghjkl","zxcvbnm"];
     $keyboard = count($qwertyKeys);
 
     for ($i = 0; $i < $keyboard; $i++) {
       echo "<div class='keyrow'>";
       foreach (str_split($qwertyKeys[$i]) as $value) {
-        if (!in_array($value, $_SESSION['guesses'])) {
+        if (!in_array($value, $this->phrase->getSelected())) {
           echo "<input type='submit' id='letter-input'
             name='input' class='btn button'
             type 'text'
