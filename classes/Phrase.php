@@ -1,5 +1,4 @@
 <?php
-// $_SESSION['correctGuesses'] on line 38 (also ten? I'm confused as to what selected is supposed to be here?)
 
 class Phrase {
   private $currentPhrase = " ";
@@ -7,11 +6,7 @@ class Phrase {
 
   public function __construct($phrase = null, $selected = null) {
     $this->setPhrase($phrase);
-    $this->$selected[] = $selected;
-  }
-
-  public function getSelected() {
-    return $this->selected;
+    $this->setSelected($selected);
   }
 
   public function setPhrase($phrase) {
@@ -23,6 +18,16 @@ class Phrase {
     }
   }
 
+  public function setSelected($selected) {
+    if (!empty($selected)) {
+      $this->selected = $selected;
+    }
+  }
+
+  public function getSelected() {
+    return $this->selected;
+  }
+
   public function checkLetter($letter) {
     if (strpos($this->currentPhrase, $letter) !== false) {
       return true;
@@ -31,26 +36,15 @@ class Phrase {
     }
   }
 
-  public function addPhraseToDisplay() {
+  public function displayPhrase() {
     $phrase = str_split($this->currentPhrase);
     foreach($phrase as $character) {
       if ($character == " ") {
         echo "<li class='space hide'>$character</li>";
-      } elseif (in_array($character, $_SESSION['correctGuesses'])) {
+      } elseif (in_array($character, $this->selected)) {
           echo "<li class='letter'>$character</li>";
       } else {
           echo "<li class='letter hide'>$character</li>";
-      }
-    }
-  }
-
-  public function testPhraseToDisplay() {
-    $phrase = str_split($this->currentPhrase);
-    foreach($phrase as $character) {
-      if ($character == " ") {
-        echo " $character ";
-      } else {
-        echo " $character ";
       }
     }
   }
