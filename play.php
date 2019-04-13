@@ -23,28 +23,32 @@ if(!isset($_SESSION['lives'])) {
   $_SESSION['lives'] = 5;
 }
 
-if($_SESSION['lives'] == 0) {
-  gameOver();
-}
+if ($_POST['input']) {
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $letter = $_POST['input'];
 
   if (isset($letter)) {
     if ($phrase->checkLetter($letter) == true) {
       $_SESSION['correctGuesses'][ ] = $letter;
+      // $phrase->setSelected($_SESSION['guesses']);
+      $game->checkForWin($_SESSION['correctGuesses']);
     } else {
       $_SESSION['incorrectGuesses'][ ] = $letter;
       $_SESSION['lives'] --;
+      // $game->setLives($_SESSION['lives']);
     }
   } else {
     echo 'Please guess by choosing a letter.';
   }
-
+  $game->setLives($_SESSION['lives']);
   $_SESSION['guesses'] = array_merge($_SESSION['correctGuesses'], $_SESSION['incorrectGuesses']);
   $phrase->setSelected($_SESSION['guesses']);
-  $game->setLives($_SESSION['lives']);
 }
+
+$game->checkForLose();
+
+
 ?>
 
 <a href="index.php">home</a>
