@@ -17,8 +17,8 @@ class Phrase {
     if ($phrase) {
       $this->currentPhrase = $phrase;
     } else {
-      // select random phrase
-      // $this->currentPhrase = null;
+      include_once "inc/data.php";
+      $this->currentPhrase = callApiForPhrase();
     }
   }
 

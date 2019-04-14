@@ -4,8 +4,10 @@ include "classes/Game.php";
 include "inc/header.php";
 
   session_start();
-  $game = new Game("yoshi is the supreme being");
-  $phrase = $game->getPhrase();
+  if (!isset($_SESSION['game'])) {
+    $_SESSION['game'] = new Game();
+    $_SESSION['phrase'] = $_SESSION['game']->getPhrase();
+  }
 
   if (!isset($_SESSION['guesses'])) {
     $_SESSION['guesses'] = [];
@@ -27,10 +29,10 @@ if (isset($_POST['input'])) {
   $letter = $_POST['input'];
 
   if (isset($letter)) {
-    if ($phrase->checkLetter($letter) == true) {
+    if ($_SESSION['phrase']->checkLetter($letter) == true) {
       $_SESSION['correctGuesses'][ ] = $letter;
-      if ($game->checkForWin($_SESSION['correctGuesses']) == true) {
-        $game->gameOver("won");
+      if ($_SESSION['game']->checkForWin($_SESSION['correctGuesses']) == true) {
+        $_SESSION['game']->gameOver("won");
       };
     } else {
       $_SESSION['incorrectGuesses'][ ] = $letter;
@@ -39,9 +41,9 @@ if (isset($_POST['input'])) {
   } else {
     echo 'Please guess by choosing a letter.';
   }
-  $game->setLives($_SESSION['lives']);
+  $_SESSION['game']->setLives($_SESSION['lives']);
   $_SESSION['guesses'] = array_merge($_SESSION['correctGuesses'], $_SESSION['incorrectGuesses']);
-  $phrase->setSelected($_SESSION['guesses']);
+  $_SESSION['phrase']->setSelected($_SESSION['guesses']);
 }
 
 if (isset($_POST['end'])) {
@@ -50,8 +52,8 @@ if (isset($_POST['end'])) {
   exit;
 }
 
-if ($game->checkForLose() == true) {
-  $game->gameOver("lost");
+if ($_SESSION['game']->checkForLose() == true) {
+  $_SESSION['game']->gameOver("lost");
 }
 
 ?>
@@ -60,20 +62,20 @@ if ($game->checkForLose() == true) {
 
   <div id='scoreboard' class='section'>
     <ol>
-      <?php $game->displayScore(); ?>
+      <?php $_SESSION['game']->displayScore(); ?>
     </ol>
   </div>
 
   <h2 class="header">Phrase Hunter</h2>
   <div id='phrase' class='section'>
     <ul>
-      <?php $phrase->displayPhrase(); ?>
+      <?php $_SESSION['phrase']->displayPhrase(); ?>
     </ul>
   </div>
 
   <form method="post">
     <div id='qwerty' class='section'>
-      <?php $game->displayKeyboard(); ?>
+      <?php $_SESSION['game']->displayKeyboard(); ?>
     </div>
   </form>
 
