@@ -46,8 +46,8 @@ To pass this code review with a Meets Expectations the following criteria are re
 - [x] Class file includes the phrase and lives properties.
 - [x] Class file includes a constructor which accepts a Phrase object and sets the property.
 - [ ] Game class includes the following methods:
-    - [ ] checkForWin()
-    - [ ] checkForLose()
+    - [x] checkForWin()
+    - [x] checkForLose()
     - [ ] gameOver()
     - [x] displayKeyboard()
     - [x] displayScore()
