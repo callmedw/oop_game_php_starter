@@ -55,8 +55,8 @@ To pass this code review with a Meets Expectations the following criteria are re
 - [x] Displays the onscreen keyboard and allows users to select a letter
 - [x] Displays the score and shows the user how many lives remain
 - [x] Phrase, keyboard and score are shown and user is able to choose letters only once.
-- [ ] If a player makes 5 wrong guesses, the “lose” message is shown
-- [ ] If all the letters in the phrase are shown, the “win” message is shown
+- [x] If a player makes 5 wrong guesses, the “lose” message is shown
+- [x] If all the letters in the phrase are shown, the “win” message is shown
 - [x] A button has been added to restart the game
 - [x] Provided HTML and CSS is used
 

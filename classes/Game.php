@@ -22,8 +22,8 @@ class Game {
   }
 
   public function gameOver($result) {
-    echo "<div class='modal' id='modal'>";
-    echo "<h1>";
+    echo "<div class='modal' id='modal'>
+          <h1>";
 
     if ($result == "won") {
       echo "You WON! The phrase was " .$this->phrase->getPhrase();
@@ -31,16 +31,16 @@ class Game {
       echo "OH NO! You didn't guess '" .$this->phrase->getPhrase(). "' in enough turns and you lost!";
     }
 
-    echo "</h1>";
-    echo "<form method='post' action='index.php'>";
-  	echo "<input id='end' name='end' type='submit' class='btn button modal-btn' value='X' />";
-    echo "</form>";
-    echo "</div>";
+    echo "</h1>
+          <form method='post' action='play.php'>
+          <input id='end' name='end' type='submit' class='btn button modal-btn' value='end' />
+          </form>
+          </div>";
   }
-
 
   public function checkForLose() {
     if ($this->getLives() <= 0) {
+      $this->gameOver("lost");
       return true;
     }
   }
@@ -50,6 +50,7 @@ class Game {
     $cleanPhrase = $this->clean($phrase);
     $cleanGuesses = $this->clean($selected);
     if (count(array_diff($cleanPhrase, $cleanGuesses)) == 0) {
+      $this->gameOver("won");
       return true;
     } else {
       return false;
@@ -75,9 +76,8 @@ class Game {
       foreach (str_split($qwertyKeys[$i]) as $value) {
         if (!in_array($value, $this->phrase->getSelected())) {
           echo "<input type='submit' id='letter-input'
-            name='input' class='btn button'
-            type 'text'
-            class='key' value='".$value."'>";
+            name='input' class='btn button key'
+            type 'text' value='".$value."'>";
         } else {
           echo "<input type='submit'
             class='btn button key'

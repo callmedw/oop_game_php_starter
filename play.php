@@ -31,9 +31,7 @@ if (isset($_POST['input'])) {
   if (isset($letter)) {
     if ($_SESSION['phrase']->checkLetter($letter) == true) {
       $_SESSION['correctGuesses'][ ] = $letter;
-      if ($_SESSION['game']->checkForWin($_SESSION['correctGuesses']) == true) {
-        $_SESSION['game']->gameOver("won");
-      };
+      $_SESSION['game']->checkForWin($_SESSION['correctGuesses']);
     } else {
       $_SESSION['incorrectGuesses'][ ] = $letter;
       $_SESSION['lives'] --;
@@ -52,14 +50,11 @@ if (isset($_POST['end'])) {
   exit;
 }
 
-if ($_SESSION['game']->checkForLose() == true) {
-  $_SESSION['game']->gameOver("lost");
-}
+$_SESSION['game']->checkForLose();
 
 ?>
 
-  <a href="index.php">home</a>
-  <?php echo ($_SESSION['phrase']->getPhrase()); ?>
+
   <div id='scoreboard' class='section'>
     <ol>
       <?php $_SESSION['game']->displayScore(); ?>

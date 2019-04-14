@@ -237,8 +237,6 @@ input[type=submit].correct {
 .modal-btn {
   top: 0;
   margin: 20px;
-  float: right;
-  display: inline-block;
   padding: 5px 15px;
   font-size: 12px;
   font-weight: bolder;
