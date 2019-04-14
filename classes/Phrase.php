@@ -6,7 +6,11 @@ class Phrase {
 
   public function __construct($phrase = null, $selected = null) {
     $this->setPhrase($phrase);
-    $this->setSelected($selected);
+    if ($selected != null) {
+      $this->selected = $selected;
+    } else {
+      $this->$selected[] = $selected;
+    }
   }
 
   public function setPhrase($phrase) {
@@ -19,9 +23,11 @@ class Phrase {
   }
 
   public function setSelected($selected) {
-    if (!empty($selected)) {
-      $this->selected = $selected;
-    }
+    return $this->selected = $selected;
+  }
+
+  public function getPhrase() {
+    return $this->currentPhrase;
   }
 
   public function getSelected() {
@@ -38,13 +44,14 @@ class Phrase {
 
   public function displayPhrase() {
     $phrase = str_split($this->currentPhrase);
+
     foreach($phrase as $character) {
       if ($character == " ") {
         echo "<li class='space hide'>$character</li>";
       } elseif (in_array($character, $this->selected)) {
-          echo "<li class='letter'>$character</li>";
+        echo "<li class='letter'>$character</li>";
       } else {
-          echo "<li class='letter hide'>$character</li>";
+        echo "<li class='letter hide'>$character</li>";
       }
     }
   }
