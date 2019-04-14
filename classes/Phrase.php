@@ -20,7 +20,8 @@ class Phrase {
       $this->currentPhrase = $phrase;
     } else {
       include_once "inc/data.php";
-      $this->currentPhrase = htmlspecialchars(callApiForPhrase());
+      $escapedPhrase = strtolower(htmlspecialchars(callApiForPhrase()));
+      $this->currentPhrase = $escapedPhrase;
     }
   }
 
@@ -46,11 +47,11 @@ class Phrase {
 
   public function displayPhrase() {
     $phrase = str_split($this->currentPhrase);
-    $selected = array_map('strtolower', $this->selected);
+
     foreach($phrase as $character) {
       if ($character == " ") {
         echo "<li class='space hide'>$character</li>";
-      } elseif (in_array(strtolower($character), $selected)) {
+      } elseif (in_array($character, $this->selected)) {
         echo "<li class='letter'>$character</li>";
       } else {
         echo "<li class='letter hide'>$character</li>";
