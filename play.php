@@ -3,25 +3,25 @@ include "classes/Phrase.php";
 include "classes/Game.php";
 include "inc/header.php";
 
-session_start();
-$game = new Game("yoshi is the supreme being");
-$phrase = $game->getPhrase();
+  session_start();
+  $game = new Game("yoshi is the supreme being");
+  $phrase = $game->getPhrase();
 
-if (!isset($_SESSION['guesses'])) {
-  $_SESSION['guesses'] = [];
-}
+  if (!isset($_SESSION['guesses'])) {
+    $_SESSION['guesses'] = [];
+  }
 
-if (!isset($_SESSION['correctGuesses'])) {
-  $_SESSION['correctGuesses'] = [];
-}
+  if (!isset($_SESSION['correctGuesses'])) {
+    $_SESSION['correctGuesses'] = [];
+  }
 
-if (!isset($_SESSION['incorrectGuesses'])) {
-  $_SESSION['incorrectGuesses'] = [];
-}
+  if (!isset($_SESSION['incorrectGuesses'])) {
+    $_SESSION['incorrectGuesses'] = [];
+  }
 
-if(!isset($_SESSION['lives'])) {
-  $_SESSION['lives'] = 5;
-}
+  if(!isset($_SESSION['lives'])) {
+    $_SESSION['lives'] = 5;
+  }
 
 if (isset($_POST['input'])) {
   $letter = $_POST['input'];
@@ -29,10 +29,8 @@ if (isset($_POST['input'])) {
   if (isset($letter)) {
     if ($phrase->checkLetter($letter) == true) {
       $_SESSION['correctGuesses'][ ] = $letter;
-      if ($game->checkForWin($_SESSION['correctGuesses'])) {
-        session_destroy();
-        header("Location:index.php");
-        exit;
+      if ($game->checkForWin($_SESSION['correctGuesses']) == true) {
+        $game->gameOver("won");
       };
     } else {
       $_SESSION['incorrectGuesses'][ ] = $letter;
@@ -46,11 +44,16 @@ if (isset($_POST['input'])) {
   $phrase->setSelected($_SESSION['guesses']);
 }
 
-if ($game->checkForLose()) {
+if (isset($_POST['end'])) {
   session_destroy();
   header("Location:index.php");
   exit;
 }
+
+if ($game->checkForLose() == true) {
+  $game->gameOver("lost");
+}
+
 ?>
 
   <a href="index.php">home</a>

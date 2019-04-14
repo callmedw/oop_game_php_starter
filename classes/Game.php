@@ -21,6 +21,24 @@ class Game {
     return $this->phrase;
   }
 
+  public function gameOver($result) {
+    echo "<div class='modal' id='modal'>";
+    echo "<h1>";
+
+    if ($result == "won") {
+      echo "You WON! The phrase was " .$this->phrase->getPhrase();
+    } elseif ($result == "lost") {
+      echo "OH NO! You didn't guess '" .$this->phrase->getPhrase(). "' in enough turns and you lost!";
+    }
+
+    echo "</h1>";
+    echo "<form method='post' action='index.php'>";
+  	echo "<input id='end' name='end' type='submit' class='btn button modal-btn' value='X' />";
+    echo "</form>";
+    echo "</div>";
+  }
+
+
   public function checkForLose() {
     if ($this->getLives() <= 0) {
       return true;

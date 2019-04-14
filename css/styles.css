@@ -216,3 +216,49 @@ input[type=submit].correct {
 .tries {
   margin: 5px;
 }
+
+
+/* Modal */
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 35%;
+  top: 28%;
+  width: 30%;
+  height: 35%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+  color:  #bbddcc;
+  text-align: center;
+}
+
+/* Modal button */
+.modal-btn {
+  top: 0;
+  margin: 20px;
+  float: right;
+  display: inline-block;
+  padding: 5px 15px;
+  font-size: 12px;
+  font-weight: bolder;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #445566;
+  background-color: #ddbbaa;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 5px #999;
+}
+
+.modal-button:hover {
+  background-color: #ddaab3;
+}
+
+.modal-button:active {
+  background-color: #ddaab3;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
