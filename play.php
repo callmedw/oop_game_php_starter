@@ -23,20 +23,16 @@ if(!isset($_SESSION['lives'])) {
   $_SESSION['lives'] = 5;
 }
 
-if ($_POST['input']) {
-
-// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if (isset($_POST['input'])) {
   $letter = $_POST['input'];
 
   if (isset($letter)) {
     if ($phrase->checkLetter($letter) == true) {
       $_SESSION['correctGuesses'][ ] = $letter;
-      // $phrase->setSelected($_SESSION['guesses']);
       $game->checkForWin($_SESSION['correctGuesses']);
     } else {
       $_SESSION['incorrectGuesses'][ ] = $letter;
       $_SESSION['lives'] --;
-      // $game->setLives($_SESSION['lives']);
     }
   } else {
     echo 'Please guess by choosing a letter.';
@@ -47,12 +43,9 @@ if ($_POST['input']) {
 }
 
 $game->checkForLose();
-
-
 ?>
 
-<a href="index.php">home</a>
-
+  <a href="index.php">home</a>
 
   <div id='scoreboard' class='section'>
     <ol>
