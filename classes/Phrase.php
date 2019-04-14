@@ -8,8 +8,10 @@ class Phrase {
     $this->setPhrase($phrase);
     if ($selected != null) {
       $this->selected = $selected;
+      var_dump($this->$selected);
     } else {
       $this->$selected[] = $selected;
+      var_dump($this->$selected);
     }
   }
 
@@ -44,11 +46,11 @@ class Phrase {
 
   public function displayPhrase() {
     $phrase = str_split($this->currentPhrase);
-
+    $selected = array_map('strtolower', $this->selected);
     foreach($phrase as $character) {
       if ($character == " ") {
         echo "<li class='space hide'>$character</li>";
-      } elseif (in_array($character, $this->selected)) {
+      } elseif (in_array(strtolower($character), $selected)) {
         echo "<li class='letter'>$character</li>";
       } else {
         echo "<li class='letter hide'>$character</li>";

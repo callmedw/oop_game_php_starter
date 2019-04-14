@@ -59,7 +59,7 @@ if ($_SESSION['game']->checkForLose() == true) {
 ?>
 
   <a href="index.php">home</a>
-
+  <?php echo ($_SESSION['phrase']->getPhrase()); ?>
   <div id='scoreboard' class='section'>
     <ol>
       <?php $_SESSION['game']->displayScore(); ?>
