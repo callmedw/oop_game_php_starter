@@ -23,20 +23,29 @@ class Game {
 
   public function checkForLose() {
     if ($this->getLives() <= 0) {
-      session_destroy();
-      header('location:index.php');
+      return true;
     }
   }
 
   public function checkForWin($selected) {
-    $correctPhrase = str_split($this->phrase->getPhrase());
-    unset($correctPhrase[null]);
-    
-    if ($correctPhrase == $selected) {
-      echo "Both arrays are same\n";
+    $phrase = $this->phrase->getPhrase();
+    $cleanPhrase = $this->clean($phrase);
+    $cleanGuesses = $this->clean($selected);
+    if (count(array_diff($cleanPhrase, $cleanGuesses)) == 0) {
+      return true;
     } else {
-      echo "Both arrays are not same\n";
+      return false;
     }
+  }
+
+  public function clean($entry) {
+    if (gettype($entry) == "string") {
+      $removeSpaces = str_replace(' ', '', $entry);
+      $entry = str_split($removeSpaces);
+    }
+    $removeDuplicateChars = array_unique($entry);
+    sort($entry);
+    return $entry;
   }
 
   public function displayKeyboard() {
