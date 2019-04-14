@@ -29,7 +29,11 @@ if (isset($_POST['input'])) {
   if (isset($letter)) {
     if ($phrase->checkLetter($letter) == true) {
       $_SESSION['correctGuesses'][ ] = $letter;
-      $game->checkForWin($_SESSION['correctGuesses']);
+      if ($game->checkForWin($_SESSION['correctGuesses'])) {
+        session_destroy();
+        header("Location:index.php");
+        exit;
+      };
     } else {
       $_SESSION['incorrectGuesses'][ ] = $letter;
       $_SESSION['lives'] --;
@@ -42,7 +46,11 @@ if (isset($_POST['input'])) {
   $phrase->setSelected($_SESSION['guesses']);
 }
 
-$game->checkForLose();
+if ($game->checkForLose()) {
+  session_destroy();
+  header("Location:index.php");
+  exit;
+}
 ?>
 
   <a href="index.php">home</a>
