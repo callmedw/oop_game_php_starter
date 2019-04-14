@@ -18,7 +18,7 @@ class Phrase {
       $this->currentPhrase = $phrase;
     } else {
       include_once "inc/data.php";
-      $this->currentPhrase = callApiForPhrase();
+      $this->currentPhrase = htmlspecialchars(callApiForPhrase());
     }
   }
 
