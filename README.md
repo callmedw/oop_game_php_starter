@@ -63,7 +63,7 @@ To pass this code review with a Meets Expectations the following criteria are re
 
 Additionally, the app may Exceed Expectations by including:
 
-- [ ] Event listener for the "keypress" event that submits the form for the associated onscreen keyboard button
+- [x] Event listener for the "keypress" event that submits the form for the associated onscreen keyboard button
 - [ ] App styles have been personalized and changes have been noted in the README.md file and the project submission notes
 
 ## CSS Personalization Notes
@@ -76,6 +76,7 @@ Additionally, the app may Exceed Expectations by including:
 * [HTML](https://www.w3.org/TR/html5/)
 * [PHP](https://php.net)
 * [Git](https://git-scm.com)
+* [Javascript](https://www.javascript.com/)
 * [MAMP](https://www.mamp.info/en/) or [Apache](https://httpd.apache.org/)
 
 ## Suggested Technologies

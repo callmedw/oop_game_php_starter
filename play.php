@@ -51,9 +51,7 @@ if (isset($_POST['end'])) {
 }
 
 $_SESSION['game']->checkForLose();
-
 ?>
-
 
   <div id='scoreboard' class='section'>
     <ol>
@@ -68,7 +66,7 @@ $_SESSION['game']->checkForLose();
     </ul>
   </div>
 
-  <form method="post">
+  <form id="keyboard-form" method="post">
     <div id='qwerty' class='section'>
       <?php $_SESSION['game']->displayKeyboard(); ?>
     </div>

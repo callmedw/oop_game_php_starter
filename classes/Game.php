@@ -22,17 +22,15 @@ class Game {
   }
 
   public function gameOver($result) {
-    echo "<div class='modal' id='modal'>
-          <h1>";
+    echo "<div class='modal' id='modal'>";
 
     if ($result == "won") {
-      echo "You WON! The phrase was " .$this->phrase->getPhrase();
+      echo "<h1>You WON!</h1> <p>The phrase was '" .$this->phrase->getPhrase(). "' </p>";
     } elseif ($result == "lost") {
-      echo "OH NO! You didn't guess '" .$this->phrase->getPhrase(). "' in enough turns and you lost!";
+       echo "<h1>OH NO!</h1> <p> You didn't guess '" .$this->phrase->getPhrase(). "' in enough turns and you lost!</p>";
     }
-
-    echo "</h1>
-          <form method='post' action='play.php'>
+    
+    echo "<form method='post' action='play.php'>
           <input id='end' name='end' type='submit' class='btn button modal-btn' value='end' />
           </form>
           </div>";
@@ -75,9 +73,9 @@ class Game {
       echo "<div class='keyrow'>";
       foreach (str_split($qwertyKeys[$i]) as $value) {
         if (!in_array($value, $this->phrase->getSelected())) {
-          echo "<input type='submit' id='letter-input'
+          echo "<input type='submit' id='$value'
             name='input' class='btn button key'
-            type 'text' value='".$value."'>";
+            value='".$value."'>";
         } else {
           echo "<input type='submit'
             class='btn button key'

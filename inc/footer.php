@@ -1,5 +1,5 @@
     </div>
     <!-- Javascripts -->
-    <script src="./js/custom.js"></script>
+    <script src="./js/custom.js" type="text/javascript"></script>
   </body>
 </html>
