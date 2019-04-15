@@ -228,9 +228,10 @@ input[type=submit].correct {
   width: 30%;
   height: 35%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.4);
-  color:  #bbddcc;
+  background-color: #5086BC;
+  color: white;
   text-align: center;
+  box-shadow: 0px 10px 13px -7px #000000, -1px 0px 15px 5px rgba(0,0,0,0);
 }
 
 /* Modal button */

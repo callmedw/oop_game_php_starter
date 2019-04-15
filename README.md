@@ -64,11 +64,12 @@ To pass this code review with a Meets Expectations the following criteria are re
 Additionally, the app may Exceed Expectations by including:
 
 - [x] Event listener for the "keypress" event that submits the form for the associated onscreen keyboard button
-- [ ] App styles have been personalized and changes have been noted in the README.md file and the project submission notes
+- [x] App styles have been personalized and changes have been noted in the README.md file and the project submission notes
 
 ## CSS Personalization Notes
 
-💅🏼
+I added a win/lose modal set z-index on top of the page.
+I styled the modal and the modal button
 
 ## Required Technologies
 
