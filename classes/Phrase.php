@@ -4,17 +4,19 @@ class Phrase {
   private $currentPhrase = " ";
   private $selected = [ ];
 
+  // if this is the first round push selected into selected array
+  // any turn after just replace the $this->selected array from the incoming session array $selected
   public function __construct($phrase = null, $selected = null) {
     $this->setPhrase($phrase);
     if ($selected != null) {
       $this->selected = $selected;
-      var_dump($this->$selected);
     } else {
       $this->$selected[] = $selected;
-      var_dump($this->$selected);
     }
   }
 
+  // if the app is not set up to or does not receive a Phrase
+  // call generate a random phrase
   public function setPhrase($phrase) {
     if ($phrase) {
       $this->currentPhrase = $phrase;

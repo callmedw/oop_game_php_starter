@@ -21,21 +21,6 @@ class Game {
     return $this->phrase;
   }
 
-  public function gameOver($result) {
-    echo "<div class='modal' id='modal'>";
-
-    if ($result == "won") {
-      echo "<h1>You WON!</h1> <p>The phrase was '" .$this->phrase->getPhrase(). "' </p>";
-    } elseif ($result == "lost") {
-       echo "<h1>OH NO!</h1> <p> You didn't guess '" .$this->phrase->getPhrase(). "' in enough turns and you lost!</p>";
-    }
-    
-    echo "<form method='post' action='play.php'>
-          <input id='end' name='end' type='submit' class='btn button modal-btn' value='end' />
-          </form>
-          </div>";
-  }
-
   public function checkForLose() {
     if ($this->getLives() <= 0) {
       $this->gameOver("lost");
@@ -43,6 +28,8 @@ class Game {
     }
   }
 
+  // compare the base phrase with letters guessed
+  // to see if user has guessed the phrase and won the game
   public function checkForWin($selected) {
     $phrase = $this->phrase->getPhrase();
     $cleanPhrase = $this->clean($phrase);
@@ -55,6 +42,7 @@ class Game {
     }
   }
 
+  // prepare a string or array to compare to another string or array
   public function clean($entry) {
     if (gettype($entry) == "string") {
       $removeSpaces = str_replace(' ', '', $entry);
@@ -65,6 +53,29 @@ class Game {
     return $entry;
   }
 
+  // display a win or lose message depending on the result of the game
+  public function gameOver($result) {
+    echo "<div class='modal' id='modal'>";
+    if ($result == "won") {
+      echo "<h1>You WON!</h1>
+        <p>The phrase was '"
+        .$this->phrase->getPhrase().
+        "' </p>";
+    } elseif ($result == "lost") {
+       echo "<h1>OH NO!</h1>
+        <p>You didn't guess '"
+        .$this->phrase->getPhrase().
+        "' in enough turns and you lost!</p>";
+    }
+    echo "<form method='post' action='play.php'>
+          <input id='end' name='end' type='submit' class='btn button modal-btn' value='end' />
+          </form>
+          </div>";
+  }
+
+  // loop through and for each key make it a button
+  // if the associated letter has already been guessed then
+  // apply a red background style to the button
   public function displayKeyboard() {
     $qwertyKeys = ["qwertyuiop","asdfghjkl","zxcvbnm"];
     $keyboard = count($qwertyKeys);
