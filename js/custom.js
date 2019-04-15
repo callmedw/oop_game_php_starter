@@ -9,7 +9,6 @@ if (btn) {
 	btn.onclick = function() {
 	  closeModal();
 	}
-	document.getElementById('main').innerHTML = "";
 }
 
 document.addEventListener('keypress', function (e) {

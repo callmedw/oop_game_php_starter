@@ -69,7 +69,7 @@ Additionally, the app may Exceed Expectations by including:
 ## CSS Personalization Notes
 
 I added a win/lose modal set z-index on top of the page.
-I styled the modal and the modal button
+I styled the modal and the modal button.
 
 ## Required Technologies
 
