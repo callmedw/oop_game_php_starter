@@ -48,13 +48,17 @@ class Phrase {
   }
 
   public function displayPhrase() {
+    return $this->addPhraseToDisplay();
+  }
+
+  public function addPhraseToDisplay() {
     $phrase = str_split($this->currentPhrase);
 
     foreach($phrase as $character) {
       if ($character == " ") {
         echo "<li class='space hide'>$character</li>";
       } elseif (in_array($character, $this->selected)) {
-        echo "<li class='letter'>$character</li>";
+        echo "<li class='letter show'>$character</li>";
       } else {
         echo "<li class='letter hide'>$character</li>";
       }

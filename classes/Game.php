@@ -85,11 +85,11 @@ class Game {
       foreach (str_split($qwertyKeys[$i]) as $value) {
         if (!in_array($value, $this->phrase->getSelected())) {
           echo "<input type='submit' id='$value'
-            name='input' class='btn button key'
+            name='input' class='btn button key correct'
             value='".$value."'>";
         } else {
           echo "<input type='submit'
-            class='btn button key'
+            class='btn button key incorrect'
             style='background-color: red'
             disabled value='".$value."'>";
         }
