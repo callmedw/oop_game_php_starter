@@ -90,13 +90,13 @@ To clone and run this application, you'll need [Git](https://git-scm.com) instal
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/callmedw/oop_game_php_starter.git
+$ git clone https://github.com/callmedw/php_phrase_hunter.git
 
 # Open in atom
-$ atom oop_game_php_starter
+$ atom php_phrase_hunter
 
 # Go into the repository
-$ cd oop_game_php_starter
+$ cd php_phrase_hunter
 
 # Set this repo-folder as document root in MAMP.
 (MAMP -> Peferences -> Web Server -> Select folder)
