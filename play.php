@@ -43,7 +43,7 @@ if (isset($_POST['input'])) {
     echo 'Please guess by choosing a letter.';
   }
 
-  // update state of turns and selected letters 
+  // update state of turns and selected letters
   $_SESSION['game']->setLives($_SESSION['lives']);
   $_SESSION['guesses'] = array_merge($_SESSION['correctGuesses'], $_SESSION['incorrectGuesses']);
   $_SESSION['phrase']->setSelected($_SESSION['guesses']);

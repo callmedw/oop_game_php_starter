@@ -22,7 +22,7 @@ class Phrase {
       $this->currentPhrase = $phrase;
     } else {
       include_once "inc/data.php";
-      $escapedPhrase = strtolower(htmlspecialchars(callApiForPhrase()));
+      $escapedPhrase = strtolower(callApiForPhrase());
       $this->currentPhrase = $escapedPhrase;
     }
   }

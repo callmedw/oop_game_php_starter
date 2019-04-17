@@ -75,7 +75,7 @@ class Game {
 
   // loop through and for each key make it a button
   // if the associated letter has already been guessed then
-  // apply a red background style to the button
+  // send it through the assignKeyClass method
   public function displayKeyboard() {
     $qwertyKeys = ["qwertyuiop","asdfghjkl","zxcvbnm"];
     $keyboard = count($qwertyKeys);
@@ -85,16 +85,28 @@ class Game {
       foreach (str_split($qwertyKeys[$i]) as $value) {
         if (!in_array($value, $this->phrase->getSelected())) {
           echo "<input type='submit' id='$value'
-            name='input' class='btn button key correct'
+            class='btn button key' name='input'
             value='".$value."'>";
         } else {
-          echo "<input type='submit'
-            class='btn button key incorrect'
-            style='background-color: red'
-            disabled value='".$value."'>";
+          echo $this->assignKeyClass($value);
         }
       }
       echo "</div>";
+    }
+  }
+
+  public function assignKeyClass($value) {
+    switch ($value) {
+    case in_array($value, $this->clean($this->phrase->getPhrase())):
+        return "<input type='submit' id='$value'
+          class='btn button key correct'
+          disabled value='".$value."'>";
+        break;
+    case in_array($value, $this->phrase->getSelected()):
+        return "<input type='submit' id='$value'
+          class='btn button key incorrect'
+          disabled value='".$value."'>";
+        break;
     }
   }
 
