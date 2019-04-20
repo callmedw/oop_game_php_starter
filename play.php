@@ -3,14 +3,12 @@ include "classes/Phrase.php";
 include "classes/Game.php";
 include "inc/header.php";
 
-//begin session when page loads
 session_start();
 if (!isset($_SESSION['game'])) {
   $_SESSION['game'] = new Game();
   $_SESSION['phrase'] = $_SESSION['game']->getPhrase();
 }
 
-//set everything to empty/baseline when session starts
 if (!isset($_SESSION['guesses'])) {
   $_SESSION['guesses'] = [];
 }
@@ -27,7 +25,6 @@ if(!isset($_SESSION['lives'])) {
   $_SESSION['lives'] = 5;
 }
 
-//when input received sanitize it check for match
 if (isset($_POST['input'])) {
   $letter = trim(filter_var($_POST['input'], FILTER_SANITIZE_STRING));
 
@@ -43,16 +40,13 @@ if (isset($_POST['input'])) {
     echo 'Please guess by choosing a letter.';
   }
 
-  // update state of turns and selected letters
   $_SESSION['game']->setLives($_SESSION['lives']);
   $_SESSION['guesses'] = array_merge($_SESSION['correctGuesses'], $_SESSION['incorrectGuesses']);
   $_SESSION['phrase']->setSelected($_SESSION['guesses']);
 }
 
-// check if user has used all of their turns
 $_SESSION['game']->checkForLose();
 
-//destroy session when user clicks end button
 if (isset($_POST['end'])) {
   session_destroy();
   header("Location:index.php");

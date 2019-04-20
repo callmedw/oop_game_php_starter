@@ -1,9 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://www.theatricalrights.com/wp-content/uploads/2016/04/game-show-web-banner.png" alt="Pic of a Game Show" width="600px"></a>
-  <br>
-  Phrase Hunter
-  <br>
+  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="/images/Logo.png" alt="Pic of the App" width="600px"></a>
 </h1>
 
 <h4 align="center">
@@ -24,6 +21,7 @@ A browser-based, word guessing game. Using PHP and OOP (Object Oriented Programm
 </p>
 
 <p align="center">
+  <a href="#preview">Screenshot</a> •
   <a href="#features">Features</a> •
   <a href="#how-to-use">How To Use</a> •
   <a href="#required-technologies">Requirements</a> •
@@ -32,6 +30,13 @@ A browser-based, word guessing game. Using PHP and OOP (Object Oriented Programm
   <a href="#contact">Contact</a> •
   <a href="#license">License</a>
 </p>
+
+<br>
+
+
+## Preview
+
+![screenshot](/images/PhraseHunter.png)
 
 ## Features
 
